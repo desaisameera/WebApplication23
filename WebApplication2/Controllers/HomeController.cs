@@ -7,8 +7,6 @@ using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
-//using System.Text.ASCIIEncoding;
-//using System.Text.Encoding;
 using System.Web.Http;
 using System.Web.Mvc;
 using WebApplication2.Models;
@@ -126,11 +124,11 @@ namespace WebApplication2.Controllers
                 {
                     return Json(new { success = false, message = "Please enter text to search." });
                 }
-                if (tweetContent.Length < 1)
+                if (tweetContent == null || tweetContent.Length < 1)
                 {
-                    return Json(new { success = false, message = "There are no tweets to search" });
+                    return Json(new { success = false, message = "There are no tweets to search." });
                 }
-                if (tweetContent.Length > 10)
+                if (tweetContent != null && tweetContent.Length > 10)
                 {
                     return Json(new { success = false, message = "There more tweet array contains more than 10 elements." });
                 }
