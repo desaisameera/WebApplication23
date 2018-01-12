@@ -3,6 +3,7 @@
 }
 body {
     overflow: auto !important;
+    margin : 5%;
 }
 .media-image{
     display:none

@@ -120,6 +120,41 @@ namespace WebApplication2.Controllers
                 return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
+        public JsonResult SearchTweets(String searchText, String[]tweetContent)
+        {
+            //JsonResult result = null;
+            List<int> filteredTweets = new List<int>();
+            try
+            {
+                if (String.IsNullOrEmpty(searchText))
+                {
+                    return Json(new { success = false, message = "Please enter text to search." });
+                }
+                if (tweetContent.Length < 1)
+                {
+                    return Json(new { success = false, message = "There are no tweets to search" });
+                }
+                if (tweetContent.Length > 10)
+                {
+                    return Json(new { success = false, message = "There more tweet array contains more than 10 elements." });
+                }
+                searchText = searchText.ToLower(); //for case insensitive comparison
+                for (int index = 0; index < tweetContent.Length; index++)
+                {
+                    var content = tweetContent[index].ToLower(); //case insensitive comparison
+                    if (content.Contains(searchText))
+                    {
+                        filteredTweets.Add(index);
+                    }
+                }
+                return Json(new { success = true, data = filteredTweets }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+                       
+        }
         private Queue<TweetViewModel> BuildTweets(dynamic tweets)
         {
             Queue<TweetViewModel> processedTweets = new Queue<TweetViewModel>();
