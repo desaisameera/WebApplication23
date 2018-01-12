@@ -13,7 +13,8 @@
     });
     function searchTweets() {
         for (var index = 1; index <= 10; index++) {
-            $("#list-" + index).hide();
+            $('#list-' + index).hide();
+            $('#separator-'+index).hide();
         }
         var searchText = $('#search-bar').val();
         if (searchText) {
@@ -37,6 +38,7 @@
                         $.each(filteredTweetIndices, function (index, value) {
                             var number = value + 1;
                             $("#list-" + number).show();
+                            $('#separator-' + number).show();
                         });
                     }
                 },
@@ -48,6 +50,7 @@
         else {
             for (var index = 1; index <= 10; index++) {
                 $("#list-" + index).show();
+                $('#separator-' + index).show();
             }
         }
 
