@@ -24,6 +24,13 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// Reference from https://stackoverflow.com/questions/6378573/what-does-a-twitter-verify-credentials-look-like
+        /// Connection code from https://www.codeproject.com/Articles/676313/Twitter-API-v-with-OAuth
+        /// </summary>
+        /// <param name="username">twitter username</param>
+        /// <param name="n">number of tweets</param>
+        /// <returns></returns>
 
         public JsonResult GetTweets(String username, int n)
         {
@@ -59,7 +66,7 @@ namespace WebApplication2.Controllers
                     baseString.Append(EncodeCharacters(Uri.EscapeDataString(entry.Key + "=" + entry.Value + "&")));
                 }
 
-                //Remove the trailing ambersand char last 3 chars - %26
+                //Remove the trailing ampersand char last 3 chars - %26
                 string finalBaseString = baseString.ToString().Substring(0, baseString.Length - 3);
 
                 //Build the signing key
@@ -93,10 +100,6 @@ namespace WebApplication2.Controllers
 
                 //Allow us a reasonable timeout in case Twitter's busy
                 webRequest.Timeout = 3 * 60 * 1000;
-                //try
-                //{
-                //Proxy settings
-                // webRequest.Proxy = new WebProxy("enter proxy details/address");
                 HttpWebResponse webResponse = webRequest.GetResponse() as HttpWebResponse;
                 Stream dataStream = webResponse.GetResponseStream();
                 // Open the stream using a StreamReader for easy access.
@@ -104,16 +107,9 @@ namespace WebApplication2.Controllers
 
                 // Read the content.
                 string responseFromServer = reader.ReadToEnd();
-                // var JsonResponse = JObject.Parse(responseFromServer);
-                //JObject ojObject = (JObject)JsonResponse["response"];
-                //var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
                 dynamic jsonObject = JsonConvert.DeserializeObject(responseFromServer);
-                //JsonConvert.DeserializeObject<IEnumerable<T>>()
                 var tweets = BuildTweets(jsonObject);
                 return Json(new { success = true, data = tweets }, JsonRequestBehavior.AllowGet);
-                // }
-
-
             }
             catch (Exception ex)
             {
@@ -191,28 +187,48 @@ namespace WebApplication2.Controllers
 
             return processedTweets;
         }
+        /// <summary>
+        /// Code from https://www.codeproject.com/Articles/676313/Twitter-API-v-with-OAuth
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         private string EncodeCharacters(string data)
         {
             //as per OAuth Core 1.0 Characters in the unreserved character set MUST NOT be encoded
             //unreserved = ALPHA, DIGIT, '-', '.', '_', '~'
-            if (data.Contains("!"))
-                data = data.Replace("!", "%21");
-            if (data.Contains("'"))
-                data = data.Replace("'", "%27");
-            if (data.Contains("("))
-                data = data.Replace("(", "%28");
-            if (data.Contains(")"))
-                data = data.Replace(")", "%29");
-            if (data.Contains("*"))
-                data = data.Replace("*", "%2A");
-            if (data.Contains(","))
-                data = data.Replace(",", "%2C");
-
+            switch (data)
+            {
+                case "!":
+                    data = data.Replace("!", "%21");
+                    break;
+                case "'" :
+                    data = data.Replace("'", "%27");
+                    break;
+                case "(" :
+                    data = data.Replace("(", "%28");
+                    break;
+                case ")" :
+                    data = data.Replace(")", "%29");
+                    break;
+                case "*" :
+                    data = data.Replace("*", "%2A");
+                    break;
+                case "," :
+                    data = data.Replace(",", "%2C");
+                    break;
+                default:
+                    break;
+            }
             return data;
         }
+        /// <summary>
+        /// Method to get the media url from the tweet content to embed the media
+        /// </summary>
+        /// <param name="tweetText" is the text from twitter api></param>
+        /// <param name="mediaURL"></param>
+        /// <param name="tweetContent" tweet content sans media url></param>
         private void GetMediaURLFromContent(String tweetText, ref String mediaURL, ref String tweetContent)
         {
-            //String mediaURL = String.Empty;
             try
             {
                 if (String.IsNullOrEmpty(tweetText))
@@ -222,6 +238,7 @@ namespace WebApplication2.Controllers
                 String wordToSearch = "http";
                 int firstIndex = tweetText.IndexOf(wordToSearch);
                 int lastIndex = tweetText.LastIndexOf(wordToSearch);
+                //There is no media url
                 if (firstIndex == lastIndex)
                 {
                     tweetContent = tweetText;
@@ -232,7 +249,6 @@ namespace WebApplication2.Controllers
                     mediaURL = tweetText.Substring(lastIndex);
                     tweetContent = tweetText.Substring(0, lastIndex);
                 }
-                //return mediaURL;
             }
             catch (Exception ex)
             {
