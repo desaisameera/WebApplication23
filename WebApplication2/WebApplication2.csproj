@@ -95,7 +95,9 @@
     <Content Include="bin\System.Web.Helpers.dll" />
     <Content Include="bin\System.Web.Helpers.xml" />
     <Content Include="bin\System.Web.Mvc.dll" />
-    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Mvc.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\System.Web.Razor.dll" />
     <Content Include="bin\System.Web.Razor.xml" />
     <Content Include="bin\System.Web.Webpages.Deployment.dll" />
@@ -2146,6 +2148,9 @@
     <Content Include="bin\WebApplication2.dll.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache" />
+    <None Include="Properties\PublishProfiles\sameeratwitter - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\sameeratwitter - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\sameeratwitter.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

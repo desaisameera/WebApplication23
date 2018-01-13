@@ -162,7 +162,7 @@ namespace WebApplication2.Controllers
                     String mediaURL = String.Empty;
                     String tweetContent = String.Empty;
                     GetMediaURLFromContent(tweet, ref mediaURL, ref tweetContent);
-                    
+                    var url = tweets[count].user.url;
                     TweetViewModel tempTweet = new TweetViewModel
                     {
                         UserName = tweets[count].user.name,
@@ -171,7 +171,7 @@ namespace WebApplication2.Controllers
                         TweetContent = tweetContent,
                         NumberOfReTweets = tweets[count].retweet_count,
                         TweetDate = tweets[count].created_at,   //Tried to Parse the String to DateTime but it is giving me error. Also wanted to convert the UTC time to local, but since it is not date I cannot
-                        MediaURL = mediaURL
+                        MediaURL = url
                     };
                     count++;
                     processedTweets.Enqueue(tempTweet);
@@ -253,6 +253,29 @@ namespace WebApplication2.Controllers
                 throw ex;
             }
 
+        }
+        private String ProcessDate(String twitterDate)
+        {
+            String processedDate = String.Empty;
+            if (String.IsNullOrEmpty(twitterDate))
+            {
+                return processedDate;
+            }
+            if (twitterDate.Length != 30)   //Check if it is in incorrect format
+            {
+                return String.Empty;
+            }
+            var dateWithUTC = twitterDate.Substring(4);
+            String month = twitterDate.Substring(4, 3);
+            String day = twitterDate.Substring(8, 2);
+            String year = twitterDate.Substring(26);
+            String time = twitterDate.Substring(11, 8);
+            String hours = twitterDate.Substring(11, 2);
+            String minutes = twitterDate.Substring(14, 2);
+            String seconds = twitterDate.Substring(17, 2);
+            DateTime date = new DateTime(Int32.Parse(year),Int32.Parse(month), Int32.Parse(day), Int32.Parse(hours), Int32.Parse(minutes), Int32.Parse(seconds));
+            processedDate = date.ToLocalTime().ToString();
+            return processedDate;
         }
     }
 }

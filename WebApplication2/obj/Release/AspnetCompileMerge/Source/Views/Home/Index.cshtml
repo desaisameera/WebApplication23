@@ -1,0 +1,504 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="refresh" content="60">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Salesforce Test</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        @*<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>*@
+        <script src="/Scripts/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="/Content/assets/styles/salesforce-lightning-design-system.css" />
+        <link rel="stylesheet" type="text/css" href="/Content/CSS/styles.css" />
+    </head>
+    <body>
+       <div id="search-bar-div">
+           <input type="text" id="search-bar" class="search-bar" name="search" placeholder="Search..">
+       </div>
+        <br>
+        <div id="tweet-content-div">
+            <ul class="slds-timeline">
+                <li id="list-1">
+                    <div class="slds-timeline__item" id="tweet1">
+                        <span class="slds-assistive-text"></span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar_large" aria-hidden="true" id="user-photo-1">
+                                                <img class ="user-image"alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-1" title=""><a href="javascript:void(0);"></a></h3>
+                                        
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-1">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-1"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-1"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-1"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-1"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-1" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-1" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id="separator-1">
+                <li id="list-2">
+                    <div class="slds-timeline__item" id="tweet2">
+                        <span class="slds-assistive-text">Task</span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar-large" id="user-photo-2" aria-hidden="true">
+                                                <img class="user-image" alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-2" title=""><a href="javascript:void(0);"></a></h3>
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-2">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-2"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-2"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-2"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-2"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-2" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-2" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id="separator-2">
+                <li id="list-3">
+                    <div class="slds-timeline__item" id="tweet3">
+                        <span class="slds-assistive-text"></span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar-large" id="user-photo-3" aria-hidden="true">
+                                                <img class="user-image" alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-3"><a href="javascript:void(0);"></a></h3>
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-3">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-3"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-3"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-3"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-3"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-3" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-3" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id ="separator-3">
+                <li id="list-4">
+                    <div class="slds-timeline__item" id="tweet4">
+                        <span class="slds-assistive-text"></span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar-large" id="user-photo-5" aria-hidden="true">
+                                                <img class="user-image" alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-4"><a href="javascript:void(0);"></a></h3>
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-4">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-4"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-4"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-4"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-4"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-4" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-4" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id="separator-4">
+                <li id="list-5">
+                    <div class="slds-timeline__item" id="tweet5">
+                        <span class="slds-assistive-text"></span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar-large" id="user-photo-5" aria-hidden="true">
+                                                <img class="user-image" alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-5"><a href="javascript:void(0);"></a></h3>
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-5">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-5"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-5"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-5"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-5"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-5" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-5" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id="separator-5">
+                <li id="list-6">
+                    <div class="slds-timeline__item" id="tweet6">
+                        <span class="slds-assistive-text"></span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar-large" id="user-photo-6" aria-hidden="true">
+                                                <img class="user-image" alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-6" title=""><a href="javascript:void(0);"></a></h3>
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-6">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-6"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-6"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-6"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-6"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-6" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-6" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id="separator-6">
+                <li id="list-7">
+                    <div class="slds-timeline__item" id="tweet7">
+                        <span class="slds-assistive-text"></span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar-large" id="user-photo-7" aria-hidden="true">
+                                                <img class="user-image" alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-7"><a href="javascript:void(0);"></a></h3>
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-7">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-7"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-7"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-7"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-7"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-7" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-7" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id="separator-7">
+                <li id="list-8">
+                    <div class="slds-timeline__item" id="tweet8">
+                        <span class="slds-assistive-text"></span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar-large" id="user-photo-8" aria-hidden="true">
+                                                <img class="user-image" alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-8"><a href="javascript:void(0);"></a></h3>
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-8">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-8"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-8"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-8"><a href="javascript:void(0);"</a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-8"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-8" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-8" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id="separator-8">
+                <li id="list-9">
+                    <div class="slds-timeline__item" id="tweet9">
+                        <span class="slds-assistive-text"></span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar-large" id="user-photo-9" aria-hidden="true">
+                                                <img class="user-image" alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-9">@*<a href="javascript:void(0);"></a>*@</h3>
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-9">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-9"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-9"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-9"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-9"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-9" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-9" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id="separator-9">
+                <li id="list-10">
+                    <div class="slds-timeline__item" id="tweet10">
+                        <span class="slds-assistive-text"></span>
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-media slds-timeline__media slds-timeline__media_task">
+                                    <div class="slds-media__figure slds-timeline__icon">
+                                        <div class="slds-icon_container slds-icon-standard-task" title="task">
+                                            <span class="slds-avatar-large" id="user-photo-10" aria-hidden="true">
+                                                <img class="user-image" alt="Display Picture" src="" title="User avatar" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-media">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-truncate" id="tweet-content-10"><a href="javascript:void(0);"></a></h3>
+                                                <ul class="slds-list_horizontal slds-wrap" id="tweet-data-10">
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Name:</span>
+                                                        <span class="slds-text-body_small" id="user-name-10"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">User Screen Name:</span>
+                                                        <span class="slds-text-body_small" id="user-screen-name-10"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li class="slds-m-right_large">
+                                                        <span class="slds-text-title">Retweets:</span>
+                                                        <span class="slds-text-body_small" id="retweet-10"><a href="javascript:void(0);"></a></span>
+                                                    </li>
+                                                    <li>
+                                                        <p class="slds-timeline__date" id="tweet-date-10"></p>
+                                                    </li>
+                                                    <li>
+                                                        <img class="media-image" id="media-10" alt="Tweet Media" src="" />
+                                                        @*<iframe id="iframe-10" title="" src="" style="border: 0px; visibility:hidden;display:none"></iframe>*@
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <hr id="separator-10">
+            </ul>
+        </div>
+        <footer>
+            <p><center>&copy; Copyright 2018, Sameera Desai</center></p>
+        </footer>
+        <script src="~/Scripts/EventListener.js"></script>
+    </body>
+</html>
