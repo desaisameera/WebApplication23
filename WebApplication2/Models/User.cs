@@ -5,6 +5,9 @@ using System.Web;
 
 namespace WebApplication2.Models
 {
+    /// <summary>
+    /// User class that contains all the constant user information
+    /// </summary>
     public class User
     {
         public const string CONSUMER_KEY = "KX9AJkrb7kCTNlCo2S1Y05jjl";
