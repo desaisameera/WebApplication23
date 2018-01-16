@@ -12,6 +12,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using WebApplication2.Models;
 using C = WebApplication2.Models.User;
+using Constant = WebApplication2.Models.Constants;
 using System.Web.Script.Serialization;
 
 namespace WebApplication2.Controllers
@@ -257,6 +258,15 @@ namespace WebApplication2.Controllers
             }
 
         }
+        /// <summary>
+        /// Method that takes the UTC date time of the tweet in twitter api format
+        /// and converts the date time to user time zone and 
+        /// returns the date time of the tweet in user friendly format
+        /// E.g Tue Jan 16 01:48:24 +0000 2018 this is the twitter api date where +0000 indicates UTC
+        /// This method will return 1/15/2018 8:48:00 PM
+        /// </summary>
+        /// <param name="twitterDate"></param>
+        /// <returns></returns>
         private String ProcessDate(String twitterDate)
         {
             /*
@@ -288,10 +298,11 @@ namespace WebApplication2.Controllers
                 String year = twitterDate.Substring(26);
                 String time = twitterDate.Substring(11, 8);
                 String hours = twitterDate.Substring(11, 2);
-                String minutes = twitterDate.Substring(14, 2);               
+                String minutes = twitterDate.Substring(14, 2);
+                String timeZone = twitterDate.Substring(20, 5);     //timeZone = +0000. C# requires +00:00. Since by default the timezone is UTC, using it as String
                 String militaryTime = hours + ":" + minutes;
                 String standardTime = DateTime.Parse(militaryTime).ToString(@"h\:mm\ tt");  //convert military time to standard time because DateTime.ParseExact requires standard time                  
-                stringDate = dayOfWeek + " " + day + " " + month + " " + year + " " + standardTime + " " + "+00:00";
+                stringDate = dayOfWeek + " " + day + " " + month + " " + year + " " + standardTime + " " + Constant.DEFAULT_TIME_ZONE;
                 date = DateTime.ParseExact(stringDate, format, provider);
                 processedDate = date.ToLocalTime().ToString();
                 return processedDate;

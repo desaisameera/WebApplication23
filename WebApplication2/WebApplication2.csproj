@@ -2100,6 +2100,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\Results.cs" />
     <Compile Include="Models\TweetViewModel.cs" />
     <Compile Include="Models\User.cs" />
