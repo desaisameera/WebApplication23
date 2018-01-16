@@ -11,7 +11,7 @@ using WebApplication2.Controllers;
 namespace UnitTestProject2
 {
     [TestClass]
-    public class UnitTest1
+    public class SearchUnitTest
     {
         [TestMethod]
         public void Search_Valid_Tweet_With_Valid_Input_And_Case_Insensitive()
