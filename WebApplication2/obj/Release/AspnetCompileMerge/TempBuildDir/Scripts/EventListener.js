@@ -43,7 +43,7 @@
                     }
                 },
                 error: function (xhr, textStatus, thrownError) {
-                    alert("Something went wrong");
+                    alert(xhr.responseText);
                 }
             });
         }
